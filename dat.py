@@ -1,15 +1,29 @@
 import pandas as pd
+import random
 
-# Création des données fictives
-data = {
-    'Nom Client': ['Société Alpha', 'Cabinet Beta', 'Jean Dupont', 'Tech Solutions'],
-    'Mois': ['Janvier 2024', 'Janvier 2024', 'Février 2024', 'Mars 2024'],
-    'Montant': [1500.00, 450.50, 2000.00, 3200.75],
-    'Reference': ['REF-001', 'REF-002', 'REF-003', 'REF-004']
-}
+noms_entreprises = [
+    "Alpha Compta", "Boulangerie Soleil", "Garage du Centre", "Tech Innovate", 
+    "Cabinet Médical Santé", "Restaurant Le Gourmet", "Hôtel de la Plage", 
+    "Boutique Mode", "Agence Immo Plus", "Artisan Bois", "Studio Graphique",
+    "Coiffeur Style", "Librairie des Arts", "Pressing Éclat", "Fleuriste Rose"
+]
 
-# Création du DataFrame et export Excel
-df = pd.DataFrame(data)
+mois_liste = ["Janvier 2024", "Février 2024", "Mars 2024"]
+
+data = []
+
+for i in range(1, 41):
+    entreprise = random.choice(noms_entreprises) + f" {random.randint(1, 100)}"
+    mois = random.choice(mois_liste)
+    montant = round(random.uniform(150.0, 5000.0), 2)
+    reference = f"PAIE-2024-{i:03d}"
+    
+    data.append([entreprise, mois, montant, reference])
+
+# Création du DataFrame
+df = pd.DataFrame(data, columns=['Nom Client', 'Mois', 'Montant', 'Reference'])
+
+# Export
 df.to_excel('donnees_clients.xlsx', index=False)
 
-print("✅ Fichier 'donnees_clients.xlsx' généré avec succès.")
+print(f"✅ Fichier 'donnees_clients.xlsx' avec {len(df)} lignes généré !")

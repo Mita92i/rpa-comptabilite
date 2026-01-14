@@ -3,7 +3,7 @@ from docxtpl import DocxTemplate
 from docx2pdf import convert
 import os
 from pathlib import Path
-from datetime import datetime  # <--- Ajout de l'import pour la date
+from datetime import datetime  
 
 # --- CONFIGURATION ---
 INPUT_EXCEL = "donnees_clients.xlsx"
