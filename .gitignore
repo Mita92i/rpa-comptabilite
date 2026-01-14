@@ -1,0 +1,10 @@
+# Données confidentielles
+donnees_clients.xlsx
+Sortie_Attestations/
+*.pdf
+*.docx
+
+# Environnement Python
+__pycache__/
+venv/
+.env
